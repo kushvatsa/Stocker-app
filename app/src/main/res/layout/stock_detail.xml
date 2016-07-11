@@ -1,0 +1,110 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kushvatsa.android.stocker.StockDetailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_blue_500"
+            android:paddingEnd="@dimen/material_default_padding"
+            android:paddingLeft="@dimen/material_default_padding"
+            android:paddingRight="@dimen/material_default_padding"
+            android:paddingStart="@dimen/material_default_padding"
+            app:columnCount="2">
+
+            <TextView
+                android:id="@+id/stock_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                app:layout_columnSpan="2"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <TextView
+                android:id="@+id/stock_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/stock_symbol_horizontal_padding"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_columnSpan="2"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/material_default_padding"
+                app:layout_columnSpan="2"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <TextView
+                    android:id="@+id/stock_bidprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="@dimen/stock_bidprice_text_size" />
+
+                <TextView
+                    android:id="@+id/stock_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/stock_bidprice"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.GridLayout>
+
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/material_blue_500" />
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <lecho.lib.hellocharts.view.LineChartView
+                        android:id="@+id/stock_chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/line_chart_padding"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </TabHost>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
